@@ -2,11 +2,8 @@ package com.example.hw_android_countingsymbols
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import com.example.hw_android_countingsymbols.R
 import com.example.hw_android_countingsymbols.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
