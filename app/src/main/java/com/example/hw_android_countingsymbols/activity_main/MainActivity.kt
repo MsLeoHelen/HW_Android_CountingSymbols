@@ -2,6 +2,7 @@ package com.example.hw_android_countingsymbols.activity_main
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.InputFilter
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
@@ -29,6 +30,14 @@ class MainActivity : AppCompatActivity() {
         mainViewModel.editTextContent.observe(this, Observer {
             mainViewModel.changeCurrentText()
         })
+
+        editText.filters += InputFilter { source, start, end, _, _, _ ->
+            for (i in start until end)
+                if (source[i] == ' ') {
+                    return@InputFilter source.removeRange(i, i+1)
+                }
+            null
+        }
 
         imageView.setOnClickListener {
             openTextActivity()
